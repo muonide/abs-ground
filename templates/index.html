@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+<div class="mdl-grid mdl-cell--12-col">
+  <div class="demo-cards mdl-cell mdl-cell--12-col mdl-grid">
+    
+    <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+      <div class="mdl-card__supporting-text mdl-color--blue-300">
+        
+            <h4>Arkansas BalloonSAT Ground Station Tracker</h4>
+        
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <center>
+        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised">Launch Tracker</a>
+        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent mdl-button--raised">Stop Tracker</a>
+        <div class="mdl-layout-spacer"></div> <br>
+        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent-200 mdl-button--raised">Point to Last</a>
+        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent-200 mdl-button--raised">Point to Center</a>
+      </center>
+      </div>
+    </div>
+
+    <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+      <div class="mdl-card__supporting-text mdl-color--blue-300">
+        <ul>
+            <h5>Balloon Location</h5>
+        </ul>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <p class="important">
+            <ul class="demo-list-item mdl-list">
+              {% for balloondata in balloondata %}
+              <li class="mdl-list__item"><span class="mdl-list__item-primary-content">{{ balloondata }}</span></a></li>
+              {% endfor %}
+            </ul>
+      </div>
+    </div>
+    <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+      <div class="mdl-card__supporting-text mdl-color--blue-300">
+        <ul>
+          
+            <h5>Local Coordinates</h5>
+            
+        </ul>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <p class="important">
+            <ul class="demo-list-item mdl-list">
+              {% for localdata in localdata %}
+              <li class="mdl-list__item"><span class="mdl-list__item-primary-content">{{ localdata }}</span></a></li>
+              {% endfor %}
+            </ul>
+          
+      </div>
+    </div>
+    <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+      <div class="mdl-card__supporting-text mdl-color--blue-300">
+        <ul>
+          <h5>Pointing</h5>
+          
+        </ul>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <p class="important">
+          <ul class="demo-list-item mdl-list">
+            {% for servodata in servodata %}
+            <li class="mdl-list__item"><span class="mdl-list__item-primary-content">{{ servodata }}</span></a></li>
+            {% endfor %}
+          </ul> 
+      </div>
+    </div>
+    <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-desktop">
+      <div class="mdl-card__supporting-text mdl-color--blue-300">
+        <ul>
+          <h5>Local Conditions</h5>
+          
+        </ul>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <p class="important">
+          <ul class="demo-list-item mdl-list">
+            {% for weatherdata in weatherdata %}
+            <li class="mdl-list__item"><span class="mdl-list__item-primary-content">{{ weatherdata }}</span></a></li>
+            {% endfor %}
+          </ul> 
+      </div>    
+    </div>
+    <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-desktop">
+      <div class="mdl-card__supporting-text mdl-color--blue-300">
+        <ul>
+          <h5>IMU Calibration</h5>
+        </ul>
+      </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <p class="important">
+            <ul class="demo-list-item mdl-list">
+              {% for calibrationdata in calibrationdata %}
+              <li class="mdl-list__item"><span class="mdl-list__item-primary-content">{{ calibrationdata }}</span><a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">block</i></a></a></li>
+              {% endfor %}
+            </ul>   
+        </div>
+        </div>
+</div>
+ <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell">
+      <iframe src="http://api.openweathermap.org/data/2.5/weather?id=4116834&APPID=71ae36fed5d93780c2ef3969dbbe69f6&mode=html&units=imperial" scrolling="no"></iframe>
+</div>
+{% endblock %}

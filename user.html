@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Balloon Location</h1>
+    <p class="important">
+      <ul>
+      {% for data in balloondata %}
+          <li>{{ balloondata }}</a></li>
+      {% endfor %}
+      </ul>
+ 
+    </p>
+        <h1>Ground Station Location</h1>
+    <p class="important">
+      <ul>
+      {% for data in localdata %}
+          <li>{{ localdata }}</a></li>
+      {% endfor %}
+      </ul>
+ 
+    </p>
+        <h1>Servo Status</h1>
+    <p class="important">
+      <ul>
+      {% for data in servodata %}
+          <li>{{ servodata }}</a></li>
+      {% endfor %}
+      </ul>
+ 
+    </p>
+{% endblock %}
